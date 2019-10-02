@@ -1,0 +1,15 @@
+current directory: /Users/k.yonei/github/poker_judge_tool/vendor/bundle/ruby/2.3.0/gems/websocket-driver-0.7.1/ext/websocket-driver
+/Users/k.yonei/.rbenv/versions/2.3.3/bin/ruby -r ./siteconf20191002-5471-1vsj81p.rb extconf.rb
+creating Makefile
+
+current directory: /Users/k.yonei/github/poker_judge_tool/vendor/bundle/ruby/2.3.0/gems/websocket-driver-0.7.1/ext/websocket-driver
+make "DESTDIR=" clean
+
+current directory: /Users/k.yonei/github/poker_judge_tool/vendor/bundle/ruby/2.3.0/gems/websocket-driver-0.7.1/ext/websocket-driver
+make "DESTDIR="
+compiling websocket_mask.c
+linking shared-object websocket_mask.bundle
+
+current directory: /Users/k.yonei/github/poker_judge_tool/vendor/bundle/ruby/2.3.0/gems/websocket-driver-0.7.1/ext/websocket-driver
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 websocket_mask.bundle ./.gem.20191002-5471-1u10j70

@@ -1,0 +1,15 @@
+current directory: /Users/k.yonei/github/poker_judge_tool/vendor/bundle/ruby/2.3.0/gems/bindex-0.8.1/ext/skiptrace
+/Users/k.yonei/.rbenv/versions/2.3.3/bin/ruby -r ./siteconf20191002-25192-5my4c.rb extconf.rb
+creating Makefile
+
+current directory: /Users/k.yonei/github/poker_judge_tool/vendor/bundle/ruby/2.3.0/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR=" clean
+
+current directory: /Users/k.yonei/github/poker_judge_tool/vendor/bundle/ruby/2.3.0/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR="
+compiling cruby.c
+linking shared-object skiptrace/internal/cruby.bundle
+
+current directory: /Users/k.yonei/github/poker_judge_tool/vendor/bundle/ruby/2.3.0/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 cruby.bundle ./.gem.20191002-25192-5cpbot/skiptrace/internal
