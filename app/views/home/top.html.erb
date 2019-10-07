@@ -1,0 +1,44 @@
+<div class="contents"  align = "center">
+
+  　<div class="icon">
+  　<h1>Check a Poker Hand</h1>
+　<div/>
+
+
+　<div class="container">
+  　<%= form_tag("/judge", method: :post) do %>
+    　<div class="form">
+      　<textarea name="input"><%= $str %></textarea><br>
+      　<input type="submit" value="Check">
+    </div>
+  　<% end %>
+
+    <h2>
+      <% if $result0 %>
+      <%= $result0 %><br>
+      <% end %>
+
+      <% if $result1 %>
+      <%= $result1 %><br>
+      <% end %>
+
+      <% if $result2 %>
+      <%= $result2 %><br>
+      <% end %>
+
+      <% if $result3 %>
+      <%= $result3 %><br>
+      <% end %>
+
+      <% if $result4 %>
+      <%= $result4 %><br>
+      <% end %>
+
+      <% if $result %>
+        <%= $result %><br>
+      <% end %>
+    <h2/>
+
+    <p>©Copyright 2019 porkerhands All Rights Reserved.<p/>
+　<div/>
+<div/>

@@ -1,0 +1,19 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+textarea {
+  resize: none;
+  width:300px;
+  height:40px;
+  font-size: 20pt;
+}
+
+.container h2{
+  font-weight:normal;
+  font-size: 11pt;
+}
+
+.container p{
+  font-weight:lighter;
+  font-size: 10pt;
+}
