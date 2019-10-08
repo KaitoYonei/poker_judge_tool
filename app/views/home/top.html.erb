@@ -1,18 +1,19 @@
-<div class="contents"  align = "center">
+<div class="contents" align="center">
 
   　<div class="icon">
-  　<h1>Check a Poker Hand</h1>
-　<div/>
+  　<h1><i class="fas fa-gavel fa-flip-horizontal"></i> Poker Judge Tool <i class="fas fa-gavel"></i></h1>
+　  <div/>
 
 
 　<div class="container">
+  <div class="box">
   　<%= form_tag("/judge", method: :post) do %>
     　<div class="form">
-      　<textarea name="input"><%= $str %></textarea><br>
+      　<textarea name="input" placeholder="H1 S3 D12 C2 S4"><%= $str %></textarea><br>
       　<input type="submit" value="Check">
     </div>
   　<% end %>
-
+    <% if $result00 || $result0 || $result1 || $result2 || $result3 || $result4 %>
     <h2>
       <% if $result0 %>
       <%= $result0 %><br>
@@ -34,11 +35,17 @@
       <%= $result4 %><br>
       <% end %>
 
+      <% if $result00 %>
+        <%= $result00 %><br>
+      <% end %>
+    <h2/>
+    <% end %>
+    <h1>
       <% if $result %>
         <%= $result %><br>
       <% end %>
-    <h2/>
-
-    <p>©Copyright 2019 porkerhands All Rights Reserved.<p/>
+    <h1/>
+  </div>
+    <p>©Copyright 2019 PokerJudgeTool All Rights Reserved.<p/>
 　<div/>
 <div/>
