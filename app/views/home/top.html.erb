@@ -9,42 +9,21 @@
   <div class="box">
   　<%= form_tag("/judge", method: :post) do %>
     　<div class="form">
-      　<textarea name="input" placeholder="H1 S3 D12 C2 S4"><%= $str %></textarea><br>
+      　<textarea name="input" placeholder="H1 S3 D12 C2 S4"><%= @str %></textarea><br>
       　<input type="submit" value="Check">
     </div>
   　<% end %>
-    <% if $result00 || $result0 || $result1 || $result2 || $result3 || $result4 %>
-    <h2>
-      <% if $result0 %>
-      <%= $result0 %><br>
-      <% end %>
-
-      <% if $result1 %>
-      <%= $result1 %><br>
-      <% end %>
-
-      <% if $result2 %>
-      <%= $result2 %><br>
-      <% end %>
-
-      <% if $result3 %>
-      <%= $result3 %><br>
-      <% end %>
-
-      <% if $result4 %>
-      <%= $result4 %><br>
-      <% end %>
-
-      <% if $result00 %>
-        <%= $result00 %><br>
-      <% end %>
-    <h2/>
+    <% if @result_error%>
+      <h2>
+        <%= @result_error.html_safe %>
+        <%= @result_error_add %>
+      <h2/>
     <% end %>
-    <h1>
-      <% if $result %>
-        <%= $result %><br>
-      <% end %>
-    <h1/>
+    <% if @result %>
+      <h1>
+        <%= @result %><br>
+      <h1/>
+    <% end %>
   </div>
     <p>©Copyright 2019 PokerJudgeTool All Rights Reserved.<p/>
 　<div/>
