@@ -1,34 +1,24 @@
 require 'rails_helper'
 
 RSpec.describe HomeController, type: :controller do
-  describe "#judge" do
+  describe "#valid" do
 
     describe "入力形式の間違いをはじく" do
       context "6文字以上の場合" do
-        example %Q[「5つのカード指定文字を半角スペース区切りで入力してください。（例："S1 H3 D9 C13 S11"）」と表示される]do
-          @str = "H1 D2 F3 C10 H1 L"
-          expect(@result).to eq nil
-          expect(@result_error==%Q[5つのカード指定文字を半角スペース区切りで入力してください。（例："S1 H3 D9 C13 S11"）]).to be_true
+        it '「5つのカード指定文字を半角スペース区切りで入力してください。（例："S1 H3 D9 C13 S11"）」と表示される' do
+          post :judge, params: abc
+          text = Text.new()
+          expect(text.valid).to eq nil
           expect(@result_error_add).to eq nil
         end
       end
 
       context "4文字以下(スペース不足・無し含む)、もしくはスペース位置や数が不適切な場合" do
-        example %Q[「5つのカード指定文字を半角スペース区切りで入力してください。（例："S1 H3 D9 C13 S11"）」と表示される] do
-          @str = "G3H1 C5H1 H13"
+        let(:params) { { :input => "G3H1 C5H1 H13" } }
+        example '「5つのカード指定文字を半角スペース区切りで入力してください。（例："S1 H3 D9 C13 S11"）」と表示される' do
+          post :judge, params: params
           expect(@result).to eq nil
-          expect(@result_error).to eq %Q[5つのカード指定文字を半角スペース区切りで入力してください。（例："S1 H3 D9 C13 S11"）]
-          expect(@result_error_add).to eq nil
-        end
-      end
-    end
-
-    describe "要素の重複をはじく" do
-      context "入力された要素に重複がある場合" do
-        example "「カードが重複しています。」と表示される" do
-          @str = "G3H1 C5H1 H13"
-          expect(@result).to eq nil
-          expect(@result_error).to eq "カードが重複しています。"
+          expect(@result_error).to == '5つのカード指定文字を半角スペース区切りで入力してください。（例："S1 H3 D9 C13 S11"）'
           expect(@result_error_add).to eq nil
         end
       end
@@ -36,16 +26,20 @@ RSpec.describe HomeController, type: :controller do
 
     describe "各要素に不適切な文字が含まれている場合をはじく" do
       context "1つ目の要素が不適切な場合" do
+        let(:params) { { :input => "G3 H1 C5 H1 H13" } }
         example "「1番目のカード指定文字が不正です。(1番目の要素を表示)半角英字大文字のスート（S,H,D,C）と数字（1〜13）の組み合わせでカードを指定してください。」と表示される" do
-          @str = "G3 H1 C5 H1 H13"
+          post :judge, params: params
           expect(@result).to eq nil
           @result_error.should include "1番目のカード指定文字が不正です。(G3)<br>"
           expect(@result_error_add).to eq "半角英字大文字のスート（S,H,D,C）と数字（1〜13）の組み合わせでカードを指定してください。"
         end
       end
       context "2つ目の要素が不適切な場合" do
-        example "「2番目のカード指定文字が不正です。(2番目の要素を表示)半角英字大文字のスート（S,H,D,C）と数字（1〜13）の組み合わせでカードを指定してください。」と表示される" do
-
+          let(:params) { { :input => "H7 H21 C5 D4 S9" } }
+          example "「2番目のカード指定文字が不正です。(2番目の要素を表示)半角英字大文字のスート（S,H,D,C）と数字（1〜13）の組み合わせでカードを指定してください。」と表示される" do
+            post :judge, params: params
+            @result_error.should include "2番目のカード指定文字が不正です。(H21)<br>"
+            expect(@result_error_add).to eq "半角英字大文字のスート（S,H,D,C）と数字（1〜13）の組み合わせでカードを指定してください。"
         end
       end
       context "3つ目の要素が不適切な場合" do
@@ -61,6 +55,18 @@ RSpec.describe HomeController, type: :controller do
       context "5つ目の要素が不適切な場合" do
         example "「5番目のカード指定文字が不正です。(5番目の要素を表示)半角英字大文字のスート（S,H,D,C）と数字（1〜13）の組み合わせでカードを指定してください。」と表示される" do
 
+        end
+      end
+    end
+
+    describe "要素の重複をはじく" do
+      context "入力された要素に重複がある場合" do
+        let(:params) { { :input => "S4 H1 C5 H1 H13" } }
+        example "「カードが重複しています。」と表示される" do
+          post :judge, params: params
+          expect(@result).to eq nil
+          expect(@result_error).to eq "カードが重複しています。"
+          expect(@result_error_add).to eq nil
         end
       end
     end
