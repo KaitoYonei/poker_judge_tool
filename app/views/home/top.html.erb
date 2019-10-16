@@ -9,8 +9,12 @@
   <div class="box">
   　<%= form_tag("/", method: :post) do %>
     　<div class="form">
-      　<textarea name="hand" placeholder="H1 S3 D12 C2 S4"><%= @card %></textarea><br>
-      　<input type="submit" value="Check">
+      <div class ="form_text">
+      　<%= text_field_tag "hand", @card, placeholder: "H1 S12 D3 H7 C10"%><br>
+      </div>
+      <div class="form_botton">
+        <%= submit_tag(:Check) %>
+      </div>
       </div>
   　<% end %>
     <% if @result_error%>
