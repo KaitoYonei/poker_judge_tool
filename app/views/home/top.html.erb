@@ -7,11 +7,11 @@
 
 　<div class="container">
   <div class="box">
-  　<%= form_tag("/result", method: :post) do %>
+  　<%= form_tag("/", method: :post) do %>
     　<div class="form">
       　<textarea name="input" placeholder="H1 S3 D12 C2 S4"><%= @card %></textarea><br>
       　<input type="submit" value="Check">
-    </div>
+      </div>
   　<% end %>
     <% if @result_error%>
       <h2>

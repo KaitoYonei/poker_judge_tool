@@ -9,6 +9,7 @@ class HomeController < ApplicationController
 
   def result
     @card = params[:input]
+    @input_array = @card.split
     text = Text.new(@card)
     @result_error = text.valid
     @result = text.judge
