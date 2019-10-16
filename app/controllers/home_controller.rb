@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   require "judge.rb"
-  include Judge_System
+  include Judge_Service
 
   def top
     @result = nil

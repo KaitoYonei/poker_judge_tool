@@ -1,5 +1,8 @@
-module Judge_System
+module Judge_Service
+
  class Text
+   require "request_error.rb"
+   include Request_error
 
    def initialize(card)
      @str = card
@@ -7,9 +10,9 @@ module Judge_System
 
    def valid
      @result_error = nil
-     if /^[^ ]+ [^ ]+ [^ ]+ [^ ]+ [^ ]+ [^ ]+/ == @str
+     if SIX_OR_MORE == @str
        @result_error = '5つのカード指定文字を半角スペース区切りで入力してください。（例："S1 H3 D9 C13 S11"）'
-     elsif /^[^ ]+ [^ ]+ [^ ]+ [^ ]+ ([^ ]+)$/ !~ @str
+     elsif FOUR_OR_LESS !~ @str
        @result_error = '5つのカード指定文字を半角スペース区切りで入力してください。（例："S1 H3 D9 C13 S11"）'
      else
        @input_array = @str.split
@@ -18,23 +21,23 @@ module Judge_System
          error = []
          input_numbers = [@input_array[0].delete("C,D,S,H"),@input_array[1].delete("C,D,S,H"), @input_array[2].delete("C,D,S,H"),@input_array[3].delete("C,D,S,H"), @input_array[4].delete("C,D,S,H")]
          @input_letters = [@input_array[0].delete("0-9"),@input_array[1].delete("0-9"),@input_array[2].delete("0-9"),@input_array[3].delete("0-9"),@input_array[4].delete("0-9")]
-         unless /\b[1-9]\b|\b1[0-3]\b/ === input_numbers[0] && /\b[CDSH]\b/ === @input_letters[0]
+         unless NUMBER_ONE_TO_THIRTEEN === input_numbers[0] && ALPHABET_C_D_H_S === @input_letters[0]
            error.push("1番目のカード指定文字が不正です。(#{@input_array[0]})<br>")
          end
 
-         unless /\b[1-9]\b|\b1[0-3]\b/ === input_numbers[1] && /\b[CDSH]\b/ === @input_letters[1]
+         unless NUMBER_ONE_TO_THIRTEEN === input_numbers[1] && ALPHABET_C_D_H_S === @input_letters[1]
            error.push("2番目のカード指定文字が不正です。(#{@input_array[1]})<br>")
          end
 
-         unless /\b[1-9]\b|\b1[0-3]\b/ === input_numbers[2] && /\b[CDSH]\b/ === @input_letters[2]
+         unless NUMBER_ONE_TO_THIRTEEN === input_numbers[2] && ALPHABET_C_D_H_S === @input_letters[2]
            error.push("3番目のカード指定文字が不正です。(#{@input_array[2]})<br>")
          end
 
-         unless /\b[1-9]\b|\b1[0-3]\b/ === input_numbers[3] && /\b[CDSH]\b/ === @input_letters[3]
+         unless NUMBER_ONE_TO_THIRTEEN === input_numbers[3] && ALPHABET_C_D_H_S === @input_letters[3]
            error.push("4番目のカード指定文字が不正です。(#{@input_array[3]})<br>")
          end
 
-         unless /\b[1-9]\b|\b1[0-3]\b/ === input_numbers[4] && /\b[CDSH]\b/ === @input_letters[4]
+         unless NUMBER_ONE_TO_THIRTEEN === input_numbers[4] && ALPHABET_C_D_H_S === @input_letters[4]
            error.push("5番目のカード指定文字が不正です。(#{@input_array[4]})<br>")
          end
 
@@ -81,10 +84,5 @@ module Judge_System
     end
 
 
-
-
-
-
-
-   end
-  end
+ end
+end
