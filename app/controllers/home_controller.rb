@@ -8,11 +8,11 @@ class HomeController < ApplicationController
   end
 
   def result
-    @card = params[:input]
-    @input_array = @card.split
+    @card = params[:hand]
     text = Text.new(@card)
     @result_error = text.valid
     @result = text.judge
+    @input_array = @card.split
     render("top")
   end
 

@@ -7,7 +7,7 @@ module Judge_System
 
    def valid
      @result_error = nil
-     if /^[^ ]+ [^ ]+ [^ ]+ [^ ]+ [^ ]+ [^ ]+/ === @str
+     if /^[^ ]+ [^ ]+ [^ ]+ [^ ]+ [^ ]+ [^ ]+/ == @str
        @result_error = '5つのカード指定文字を半角スペース区切りで入力してください。（例："S1 H3 D9 C13 S11"）'
      elsif /^[^ ]+ [^ ]+ [^ ]+ [^ ]+ ([^ ]+)$/ !~ @str
        @result_error = '5つのカード指定文字を半角スペース区切りで入力してください。（例："S1 H3 D9 C13 S11"）'
@@ -57,17 +57,17 @@ module Judge_System
      @result = nil
      if @result_error == nil
        numbers = [@input_array[0].delete("C,D,S,H").to_i,@input_array[1].delete("C,D,S,H").to_i, @input_array[2].delete("C,D,S,H").to_i,@input_array[3].delete("C,D,S,H").to_i,@input_array[4].delete("C,D,S,H").to_i].sort
-        if numbers[4] === numbers[3] + 1 && numbers[3] === numbers[2] + 1 && numbers[2] === numbers[1] + 1 && numbers[1] === numbers[0] + 1 && @input_letters[0] === @input_letters[1] && @input_letters[1] === @input_letters[2] && @input_letters[2] === @input_letters[3] && @input_letters[3] === @input_letters[4]
+        if (numbers[4] == numbers[3] + 1 && numbers[3] == numbers[2] + 1 && numbers[2] == numbers[1] + 1 && numbers[1] == numbers[0] + 1 || numbers == [1,10,11,12,13]) && (@input_letters[0] == @input_letters[1] && @input_letters[1] == @input_letters[2] && @input_letters[2] == @input_letters[3] && @input_letters[3] == @input_letters[4])
           @result = "ストレートフラッシュ"
-        elsif numbers[0] === numbers[3] || numbers[1] === numbers[4]
+        elsif numbers[0] == numbers[3] || numbers[1] == numbers[4]
           @result = "フォー・オブ・ア・カインド"
-        elsif numbers[0] === numbers[2] && numbers[3] === numbers[4] || numbers[2] === numbers[4] && numbers[0] === numbers[1]
+        elsif numbers[0] == numbers[2] && numbers[3] == numbers[4] || numbers[2] == numbers[4] && numbers[0] == numbers[1]
           @result = "フルハウス"
-        elsif @input_letters[0] === @input_letters[1] && @input_letters[1] === @input_letters[2] && @input_letters[2] === @input_letters[3] && @input_letters[3] === @input_letters[4]
+        elsif @input_letters[0] == @input_letters[1] && @input_letters[1] == @input_letters[2] && @input_letters[2] == @input_letters[3] && @input_letters[3] == @input_letters[4]
           @result = "フラッシュ"
-        elsif numbers[4] === numbers[3] + 1 && numbers[3] === numbers[2] + 1 && numbers[2] === numbers[1] + 1 && numbers[1] === numbers[0] + 1
+        elsif numbers[4] == numbers[3] + 1 && numbers[3] == numbers[2] + 1 && numbers[2] == numbers[1] + 1 && numbers[1] == numbers[0] + 1 || numbers == [1,10,11,12,13]
           @result = "ストレート"
-        elsif numbers[0] === numbers[2] || numbers[1] === numbers[3] || numbers[2] === numbers[4]
+        elsif numbers[0] == numbers[2] || numbers[1] == numbers[3] || numbers[2] == numbers[4]
           @result = "スリー・オブ・ア・カインド"
         elsif numbers.uniq.length == 3
           @result = "ツーペア"

@@ -6,7 +6,6 @@
       <change beforePath="$PROJECT_DIR$/app/controllers/home_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/home_controller.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/service/judge.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/service/judge.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/home/top.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/home/top.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.bundle/" />
     <ignored path="$PROJECT_DIR$/components/" />
@@ -21,13 +20,13 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/poker_judge_tool@judge.rcov" NAME="judge Coverage Results" MODIFIED="1571191848296" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app/service" MODULE_NAME="poker_judge_tool" />
+    <SUITE FILE_PATH="coverage/poker_judge_tool@judge.rcov" NAME="judge Coverage Results" MODIFIED="1571202389071" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app/service" MODULE_NAME="poker_judge_tool" />
     <SUITE FILE_PATH="coverage/poker_judge_tool@spec__poker_judge_tool.rcov" NAME="spec: poker_judge_tool Coverage Results" MODIFIED="1570597695275" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="poker_judge_tool" />
     <SUITE FILE_PATH="coverage/poker_judge_tool@HomeController_judge___poker_judge_tool.rcov" NAME="HomeController#judge 入力形式の間違いをはじく: poker_judge_tool Coverage Results" MODIFIED="1570600507963" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="poker_judge_tool" />
     <SUITE FILE_PATH="coverage/poker_judge_tool@home_controller.rcov" NAME="home_controller Coverage Results" MODIFIED="1570610638175" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app/controllers" MODULE_NAME="poker_judge_tool" />
     <SUITE FILE_PATH="coverage/poker_judge_tool@HomeController_judge__6_5_S1_H3_D9_C13_S11___poker_judge_tool.rcov" NAME="HomeController#judge 入力形式の間違いをはじく 6文字以上の場合 「5つのカード指定文字を半角スペース区切りで入力してください。（例：&quot;S1 H3 D9 C13 S11&quot;）」と表示される: poker_judge_tool Coverage Results" MODIFIED="1570597474615" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="poker_judge_tool" />
     <SUITE FILE_PATH="coverage/poker_judge_tool@HomeController_judge__poker_judge_tool.rcov" NAME="HomeController#judge: poker_judge_tool Coverage Results" MODIFIED="1570598188342" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="poker_judge_tool" />
-    <SUITE FILE_PATH="coverage/poker_judge_tool@Development__poker_judge_tool.rcov" NAME="Development: poker_judge_tool Coverage Results" MODIFIED="1570616234475" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="poker_judge_tool" />
+    <SUITE FILE_PATH="coverage/poker_judge_tool@Development__poker_judge_tool.rcov" NAME="Development: poker_judge_tool Coverage Results" MODIFIED="1571209321847" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="poker_judge_tool" />
     <SUITE FILE_PATH="coverage/poker_judge_tool@HomeController__poker_judge_tool.rcov" NAME="HomeController: poker_judge_tool Coverage Results" MODIFIED="1570594818467" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="poker_judge_tool" />
     <SUITE FILE_PATH="coverage/poker_judge_tool@HomeController_judge__6__poker_judge_tool.rcov" NAME="HomeController#judge 入力形式の間違いをはじく 6文字以上の場合: poker_judge_tool Coverage Results" MODIFIED="1570597755150" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="poker_judge_tool" />
   </component>
@@ -49,7 +48,7 @@
           <entry key="erb" value="7" />
           <entry key="lock" value="1" />
           <entry key="pid" value="2" />
-          <entry key="rb" value="36" />
+          <entry key="rb" value="38" />
           <entry key="scss" value="1" />
         </counts>
       </usages-collector>
@@ -57,7 +56,7 @@
         <counts>
           <entry key="PLAIN_TEXT" value="3" />
           <entry key="RHTML" value="7" />
-          <entry key="Ruby" value="38" />
+          <entry key="Ruby" value="40" />
           <entry key="SCSS" value="1" />
         </counts>
       </usages-collector>
@@ -65,15 +64,15 @@
         <counts>
           <entry key="Gemfile" value="1" />
           <entry key="Ruby Console" value="291" />
-          <entry key="erb" value="948" />
-          <entry key="rb" value="4662" />
+          <entry key="erb" value="965" />
+          <entry key="rb" value="4733" />
           <entry key="scss" value="492" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="RHTML" value="948" />
-          <entry key="Ruby" value="4954" />
+          <entry key="RHTML" value="965" />
+          <entry key="Ruby" value="5025" />
           <entry key="SCSS" value="492" />
         </counts>
       </usages-collector>
@@ -81,11 +80,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/home/top.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="20" column="20" lean-forward="true" selection-start-line="20" selection-start-column="20" selection-end-line="20" selection-end-column="20" />
+            <state relative-caret-position="165">
+              <caret line="11" column="27" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="27" />
             </state>
           </provider>
         </entry>
@@ -93,17 +92,35 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/home_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+            <state relative-caret-position="225">
+              <caret line="15" selection-start-line="15" selection-end-line="15" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vendor/bundle/ruby/2.3.0/gems/activesupport-5.2.3/lib/active_support/callbacks.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1497">
+              <caret line="143" column="80" lean-forward="true" selection-start-line="143" selection-start-column="80" selection-end-line="143" selection-end-column="80" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/service/judge.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="397">
-              <caret line="32" column="97" lean-forward="true" selection-start-line="32" selection-start-column="97" selection-end-line="32" selection-end-column="97" />
+            <state relative-caret-position="268">
+              <caret line="70" column="35" lean-forward="true" selection-start-line="70" selection-start-column="35" selection-end-line="70" selection-end-column="35" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/application.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15">
+              <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
             </state>
           </provider>
         </entry>
@@ -153,10 +170,10 @@
         <option value="$PROJECT_DIR$/Gemfile" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/home.scss" />
         <option value="$PROJECT_DIR$/spec/controllers/home_controller_spec.rb" />
+        <option value="$PROJECT_DIR$/config/routes.rb" />
+        <option value="$PROJECT_DIR$/app/views/home/top.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/home_controller.rb" />
         <option value="$PROJECT_DIR$/app/service/judge.rb" />
-        <option value="$PROJECT_DIR$/app/views/home/top.html.erb" />
-        <option value="$PROJECT_DIR$/config/routes.rb" />
       </list>
     </option>
   </component>
@@ -179,8 +196,8 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="259" />
-    <option name="y" value="23" />
+    <option name="x" value="274" />
+    <option name="y" value="24" />
     <option name="width" value="1400" />
     <option name="height" value="920" />
   </component>
@@ -214,6 +231,13 @@
               <item name="poker_judge_tool" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="poker_judge_tool" type="b2602c69:ProjectViewProjectNode" />
+              <item name="poker_judge_tool" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
               <item name="stylesheets" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -221,6 +245,12 @@
               <item name="poker_judge_tool" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="controllers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="poker_judge_tool" type="b2602c69:ProjectViewProjectNode" />
+              <item name="poker_judge_tool" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="poker_judge_tool" type="b2602c69:ProjectViewProjectNode" />
@@ -311,7 +341,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Ruby.judge">
+  <component name="RunManager" selected="Rails.Development: poker_judge_tool">
     <configuration name="HomeController#judge 入力形式の間違いをはじく 6文字以上の場合: poker_judge_tool" type="RSpecRunConfigurationType" factoryName="RSpec" temporary="true">
       <predefined_log_file id="RUBY_RSPEC" enabled="true" />
       <module name="poker_judge_tool" />
@@ -587,7 +617,7 @@
       <workItem from="1571189763262" duration="3034000" />
       <workItem from="1571192966873" duration="551000" />
       <workItem from="1571193555662" duration="453000" />
-      <workItem from="1571194019185" duration="1814000" />
+      <workItem from="1571194019185" duration="7477000" />
     </task>
     <servers />
   </component>
@@ -624,7 +654,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="88666000" />
+    <option name="totallyTimeSpent" value="94329000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -636,23 +666,23 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="151" y="41" width="1400" height="920" extended-state="0" />
+    <frame x="274" y="24" width="1400" height="920" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.28645065" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.28645065" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32769045" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.45707375" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32682925" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4764208" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32889965" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.32889965" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.4992636" visible="true" weight="0.31801692" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.4992636" visible="true" weight="0.30350664" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50073636" side_tool="true" weight="0.31801692" />
       <window_info anchor="bottom" id="Messages" order="12" weight="0.3299285" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -684,6 +714,26 @@
           <url>file://$PROJECT_DIR$/spec/controllers/home_controller_spec.rb</url>
           <line>11</line>
           <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="ruby-line">
+          <url>file://$PROJECT_DIR$/app/service/judge.rb</url>
+          <line>49</line>
+          <option name="timeStamp" value="22" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="ruby-line">
+          <url>file://$PROJECT_DIR$/app/controllers/home_controller.rb</url>
+          <line>10</line>
+          <option name="timeStamp" value="23" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="ruby-line">
+          <url>file://$PROJECT_DIR$/app/service/judge.rb</url>
+          <line>4</line>
+          <option name="timeStamp" value="24" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="ruby-line">
+          <url>file://$PROJECT_DIR$/app/service/judge.rb</url>
+          <line>37</line>
+          <option name="timeStamp" value="25" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
@@ -735,13 +785,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tmp/pids/server.pid" />
-    <entry file="file://$PROJECT_DIR$/vendor/bundle/ruby/2.3.0/gems/activesupport-5.2.3/lib/active_support/callbacks.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="132" selection-start-line="132" selection-end-line="132" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vendor/bundle/ruby/2.3.0/gems/rspec-core-3.8.2/lib/rspec/core/memoized_helpers.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="156">
@@ -854,27 +897,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/home/judge.html.erb">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/spec/controllers/home_controller_spec.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="14" selection-start-line="14" selection-end-line="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/home/judge.html.erb">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/home_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/service/judge.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="397">
-          <caret line="32" column="97" lean-forward="true" selection-start-line="32" selection-start-column="97" selection-end-line="32" selection-end-column="97" />
         </state>
       </provider>
     </entry>
@@ -885,10 +914,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/config/application.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/home/top.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="20" lean-forward="true" selection-start-line="20" selection-start-column="20" selection-end-line="20" selection-end-column="20" />
+        <state relative-caret-position="165">
+          <caret line="11" column="27" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/home_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/bundle/ruby/2.3.0/gems/activesupport-5.2.3/lib/active_support/callbacks.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1497">
+          <caret line="143" column="80" lean-forward="true" selection-start-line="143" selection-start-column="80" selection-end-line="143" selection-end-column="80" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/service/judge.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="268">
+          <caret line="70" column="35" lean-forward="true" selection-start-line="70" selection-start-column="35" selection-end-line="70" selection-end-column="35" />
         </state>
       </provider>
     </entry>
