@@ -2,7 +2,9 @@ module JudgeService
 
  class Text
    require "request_error"
+   require "error_message"
    include RequestError
+   include ErrorMessage
 
    def initialize(card)
      @str = card
@@ -11,9 +13,9 @@ module JudgeService
    def valid
      @result_error = nil
      if SIX_OR_MORE == @str
-       @result_error = '5つのカード指定文字を半角スペース区切りで入力してください。（例："S1 H3 D9 C13 S11"）'
+       @result_error = FORM_ERROR
      elsif FOUR_OR_LESS !~ @str
-       @result_error = '5つのカード指定文字を半角スペース区切りで入力してください。（例："S1 H3 D9 C13 S11"）'
+       @result_error = FORM_ERROR
      else
        @input_array = @str.split
 
@@ -22,31 +24,31 @@ module JudgeService
          input_numbers = [@input_array[0].delete("C,D,S,H"),@input_array[1].delete("C,D,S,H"), @input_array[2].delete("C,D,S,H"),@input_array[3].delete("C,D,S,H"), @input_array[4].delete("C,D,S,H")]
          @input_letters = [@input_array[0].delete("0-9"),@input_array[1].delete("0-9"),@input_array[2].delete("0-9"),@input_array[3].delete("0-9"),@input_array[4].delete("0-9")]
          unless NUMBER_ONE_TO_THIRTEEN === input_numbers[0] && ALPHABET_C_D_H_S === @input_letters[0]
-           error.push("1番目のカード指定文字が不正です。(#{@input_array[0]})<br>")
+           error.push("1"+WRONG_CARD+"(#{@input_array[0]})<br>")
          end
 
          unless NUMBER_ONE_TO_THIRTEEN === input_numbers[1] && ALPHABET_C_D_H_S === @input_letters[1]
-           error.push("2番目のカード指定文字が不正です。(#{@input_array[1]})<br>")
+           error.push("2"+WRONG_CARD+"(#{@input_array[1]})<br>")
          end
 
          unless NUMBER_ONE_TO_THIRTEEN === input_numbers[2] && ALPHABET_C_D_H_S === @input_letters[2]
-           error.push("3番目のカード指定文字が不正です。(#{@input_array[2]})<br>")
+           error.push("3"+WRONG_CARD+"(#{@input_array[2]})<br>")
          end
 
          unless NUMBER_ONE_TO_THIRTEEN === input_numbers[3] && ALPHABET_C_D_H_S === @input_letters[3]
-           error.push("4番目のカード指定文字が不正です。(#{@input_array[3]})<br>")
+           error.push("4"+WRONG_CARD+"(#{@input_array[3]})<br>")
          end
 
          unless NUMBER_ONE_TO_THIRTEEN === input_numbers[4] && ALPHABET_C_D_H_S === @input_letters[4]
-           error.push("5番目のカード指定文字が不正です。(#{@input_array[4]})<br>")
+           error.push("5"+WRONG_CARD+"(#{@input_array[4]})<br>")
          end
 
          if error != []
-           error.push("半角英字大文字のスート（S,H,D,C）と数字（1〜13）の組み合わせでカードを指定してください。")
+           error.push(WRONG_CARD_MESSAGE)
            @result_error = error.join
          else @result_error = nil
          if @input_array.uniq.length != @input_array.length
-           @result_error = "カードが重複しています。"
+           @result_error = DUPLICATE
 
          end
          end
