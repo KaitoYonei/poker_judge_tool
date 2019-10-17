@@ -9,9 +9,9 @@ class HandsController < ApplicationController
 
   def result
     @card = params[:hand]
-    text = Text.new(@card)
-    @result_error = text.valid
-    @result = text.judge
+    target = Target.new(@card)
+    @result_error = target.valid
+    @result = target.judge
     render("top")
   end
 

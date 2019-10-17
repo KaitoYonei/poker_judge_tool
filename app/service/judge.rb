@@ -1,23 +1,23 @@
 module JudgeService
 
- class Text
+ class Target
    require "request_error"
    require "error_message"
    include RequestError
    include ErrorMessage
 
    def initialize(card)
-     @str = card
+     @input_date = card
    end
 
    def valid
      @result_error = nil
-     if SIX_OR_MORE == @str
+     if SIX_OR_MORE == @input_date
        @result_error = FORM_ERROR
-     elsif FOUR_OR_LESS !~ @str
+     elsif FOUR_OR_LESS !~ @input_date
        @result_error = FORM_ERROR
      else
-       @input_array = @str.split
+       @input_array = @input_date.split
 
        if @result_error == nil
          error = []
