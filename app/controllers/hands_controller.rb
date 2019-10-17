@@ -1,4 +1,4 @@
-class HomeController < ApplicationController
+class HandsController < ApplicationController
   require "judge.rb"
   include Judge_Service
 
@@ -12,7 +12,6 @@ class HomeController < ApplicationController
     text = Text.new(@card)
     @result_error = text.valid
     @result = text.judge
-    @input_array = @card.split
     render("top")
   end
 
