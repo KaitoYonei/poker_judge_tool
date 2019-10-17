@@ -2,15 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="232cde45-3363-498b-ab11-2b02cc576840" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/spec/controllers/hands_controller_spec.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/javascripts/home.coffee" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/javascripts/hands.coffee" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/home.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/hands.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/home_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/hands_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/home/judge.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/hands/judge.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/home/top.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/hands/top.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spec/controllers/home_controller_spec.rb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/hands_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/hands_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/service/judge.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/service/judge.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/service/request_error.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/service/request_error.rb" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.bundle/" />
     <ignored path="$PROJECT_DIR$/components/" />
@@ -72,14 +66,14 @@
           <entry key="Gemfile" value="1" />
           <entry key="Ruby Console" value="291" />
           <entry key="erb" value="1202" />
-          <entry key="rb" value="5154" />
+          <entry key="rb" value="5157" />
           <entry key="scss" value="597" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="RHTML" value="1202" />
-          <entry key="Ruby" value="5446" />
+          <entry key="Ruby" value="5449" />
           <entry key="SCSS" value="597" />
         </counts>
       </usages-collector>
@@ -96,20 +90,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/service/judge.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="12" lean-forward="true" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
+            <state relative-caret-position="-582">
+              <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/service/request_error.rb">
           <provider selected="true" editor-type-id="text-editor">
             <state>
-              <caret column="20" selection-start-column="7" selection-end-column="20" />
+              <caret column="19" selection-start-column="7" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -117,8 +111,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/hands_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+            <state relative-caret-position="45">
+              <caret line="3" selection-start-line="3" selection-end-line="3" />
             </state>
           </provider>
         </entry>
@@ -160,11 +154,12 @@
         <option value="$PROJECT_DIR$/Gemfile" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/home.scss" />
         <option value="$PROJECT_DIR$/app/views/home/top.html.erb" />
-        <option value="$PROJECT_DIR$/app/service/request_error.rb" />
-        <option value="$PROJECT_DIR$/app/service/judge.rb" />
         <option value="$PROJECT_DIR$/app/controllers/home_controller.rb" />
         <option value="$PROJECT_DIR$/spec/controllers/home_controller_spec.rb" />
         <option value="$PROJECT_DIR$/config/routes.rb" />
+        <option value="$PROJECT_DIR$/app/service/request_error.rb" />
+        <option value="$PROJECT_DIR$/app/controllers/hands_controller.rb" />
+        <option value="$PROJECT_DIR$/app/service/judge.rb" />
       </list>
     </option>
   </component>
@@ -204,6 +199,17 @@
             <path>
               <item name="poker_judge_tool" type="b2602c69:ProjectViewProjectNode" />
               <item name="poker_judge_tool" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="poker_judge_tool" type="b2602c69:ProjectViewProjectNode" />
+              <item name="poker_judge_tool" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="poker_judge_tool" type="b2602c69:ProjectViewProjectNode" />
+              <item name="poker_judge_tool" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="poker_judge_tool" type="b2602c69:ProjectViewProjectNode" />
@@ -604,7 +610,7 @@
       <workItem from="1571192966873" duration="551000" />
       <workItem from="1571193555662" duration="453000" />
       <workItem from="1571194019185" duration="14484000" />
-      <workItem from="1571285893368" duration="1258000" />
+      <workItem from="1571285893368" duration="2092000" />
     </task>
     <servers />
   </component>
@@ -641,7 +647,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="102594000" />
+    <option name="totallyTimeSpent" value="103428000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -882,13 +888,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/hands_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Gemfile">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="825">
@@ -903,6 +902,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/hands_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/hands/top.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
@@ -910,17 +916,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/service/judge.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="12" lean-forward="true" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/service/request_error.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state>
-          <caret column="20" selection-start-column="7" selection-end-column="20" />
+          <caret column="19" selection-start-column="7" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/service/judge.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-582">
+          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
         </state>
       </provider>
     </entry>

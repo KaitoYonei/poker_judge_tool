@@ -1,4 +1,4 @@
-module Request_error
+module RequestError
   #6枚以上の手札を入力している
   SIX_OR_MORE = Regexp.new(/^[^ ]+ [^ ]+ [^ ]+ [^ ]+ [^ ]+ [^ ]+/)
 

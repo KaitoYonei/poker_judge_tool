@@ -1,8 +1,8 @@
-module Judge_Service
+module JudgeService
 
  class Text
-   require "request_error.rb"
-   include Request_error
+   require "request_error"
+   include RequestError
 
    def initialize(card)
      @str = card

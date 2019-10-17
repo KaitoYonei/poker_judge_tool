@@ -1,6 +1,6 @@
 class HandsController < ApplicationController
-  require "judge.rb"
-  include Judge_Service
+  require "judge"
+  include JudgeService
 
   def top
     @result = nil
