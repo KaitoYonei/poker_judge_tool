@@ -76,7 +76,7 @@ module JudgeService
           @result = "スリー・オブ・ア・カインド"
         elsif numbers.uniq.length == 3
           @result = "ツーペア"
-        elsif numbers.uniq.length == 2
+        elsif numbers.uniq.length == 4
           @result = "ワンペア"
         else
           @result = "ハイカード"
