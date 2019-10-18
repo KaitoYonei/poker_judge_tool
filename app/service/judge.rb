@@ -1,25 +1,25 @@
 module JudgeService
 
- class Target
+ class JudgeHands
    require "request_error"
    require "error_message"
    include RequestError
    include ErrorMessage
 
    def initialize(card)
-     @input_date = card
+     @cards = card
    end
 
    def valid
-     @result_error = nil
-     if SIX_OR_MORE == @input_date
-       @result_error = FORM_ERROR
-     elsif FOUR_OR_LESS !~ @input_date
-       @result_error = FORM_ERROR
+     @error_message = nil
+     if SIX_OR_MORE == @cards
+       @error_message = FORM_ERROR
+     elsif FOUR_OR_LESS !~ @cards
+       @error_message = FORM_ERROR
      else
-       @input_array = @input_date.split
+       @input_array = @cards.split
 
-       if @result_error == nil
+       if @error_message == nil
          error = []
          input_numbers = [@input_array[0].delete("C,D,S,H"),@input_array[1].delete("C,D,S,H"), @input_array[2].delete("C,D,S,H"),@input_array[3].delete("C,D,S,H"), @input_array[4].delete("C,D,S,H")]
          @input_letters = [@input_array[0].delete("0-9"),@input_array[1].delete("0-9"),@input_array[2].delete("0-9"),@input_array[3].delete("0-9"),@input_array[4].delete("0-9")]
@@ -45,14 +45,14 @@ module JudgeService
 
          if error != []
            error.push(WRONG_CARD_MESSAGE)
-           @result_error = error.join
-         else @result_error = nil
+           @error_message = error.join
+         else @error_message = nil
          if @input_array.uniq.length != @input_array.length
-           @result_error = DUPLICATE
+           @error_message = DUPLICATE
 
          end
          end
-         @result_error
+         @error_message
        end
      end
    end
@@ -60,7 +60,7 @@ module JudgeService
 
      def judge
      @result = nil
-     if @result_error == nil
+     if @error_message == nil
        numbers = [@input_array[0].delete("C,D,S,H").to_i,@input_array[1].delete("C,D,S,H").to_i, @input_array[2].delete("C,D,S,H").to_i,@input_array[3].delete("C,D,S,H").to_i,@input_array[4].delete("C,D,S,H").to_i].sort
         if (numbers[4] == numbers[3] + 1 && numbers[3] == numbers[2] + 1 && numbers[2] == numbers[1] + 1 && numbers[1] == numbers[0] + 1 || numbers == [1,10,11,12,13]) && (@input_letters[0] == @input_letters[1] && @input_letters[1] == @input_letters[2] && @input_letters[2] == @input_letters[3] && @input_letters[3] == @input_letters[4])
           @result = "ストレートフラッシュ"

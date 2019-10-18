@@ -4,13 +4,13 @@ class HandsController < ApplicationController
 
   def top
     @result = nil
-    @result_error = nil
+    @error_message = nil
   end
 
   def result
     @card = params[:hand]
-    target = Target.new(@card)
-    @result_error = target.valid
+    target = JudgeHands.new(@card)
+    @error_message = target.valid
     @result = target.judge
     render("top")
   end
