@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="232cde45-3363-498b-ab11-2b02cc576840" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/spec/services/judge_spec.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/service/error_message.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/error_message.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/service/judge.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/judge.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/service/request_error.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/request_error.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spec/concerns/judge_spec.rb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spec/controllers/hands_controller_spec.rb" beforeDir="false" afterPath="$PROJECT_DIR$/spec/controllers/hands_controller_spec.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spec/spec_helper.rb" beforeDir="false" afterPath="$PROJECT_DIR$/spec/spec_helper.rb" afterDir="false" />
-    </list>
+    <list default="true" id="232cde45-3363-498b-ab11-2b02cc576840" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/.bundle/" />
     <ignored path="$PROJECT_DIR$/components/" />
     <ignored path="$PROJECT_DIR$/public/system/" />
@@ -579,7 +570,7 @@
       <workItem from="1571285893368" duration="10983000" />
       <workItem from="1571301117869" duration="4961000" />
       <workItem from="1571368818402" duration="10872000" />
-      <workItem from="1571881447745" duration="5558000" />
+      <workItem from="1571881447745" duration="6319000" />
     </task>
     <servers />
   </component>
@@ -616,7 +607,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="133710000" />
+    <option name="totallyTimeSpent" value="134471000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
