@@ -18,7 +18,7 @@ RSpec.describe HandsController, type: :controller do
 
   context '4文字以下もしくは不正な半角スペースが存在する' do
     before do
-      post :result, params:{hand: "hedf gr ww j"} , session: {}
+      post :result, params:{hand: "hg H1 D  g"} , session: {}
     end
     it 'bodyに「5つのカード指定文字を半角スペース区切りで入力してください。（例："S1 H3 D9 C13 S11"）」という記述があること' do
       expect(response.body).to include('5つのカード指定文字を半角スペース区切りで入力してください。（例："S1 H3 D9 C13 S11"）')
