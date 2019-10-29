@@ -8,6 +8,11 @@ RSpec.describe HandsController, type: :controller do
     expect(response.status).to eq 200
   end
 
+  it 'リクエスト失敗時にはステータスコード400が返ること' do
+    post :result, params:{hand: "H15 C3 S11 D4 S10"} , session: {}
+    expect(response.status).to eq 400
+  end
+
   it 'topテンプレートが表示されること' do
     post :result, params:{hand: "D1 S3 S5 S8 S1"} , session: {}
     expect(response).to render_template(:top)
