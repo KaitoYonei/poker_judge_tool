@@ -1,5 +1,5 @@
 class HandsController < ApplicationController
-  require "judge"
+  require "judge_service"
   include JudgeService
 
   def top
@@ -12,8 +12,11 @@ class HandsController < ApplicationController
     target = JudgeHands.new(@card)
     @error_message = target.valid
     @result = target.judge
-    render("top")
+
+    if @error_message
+      render:action => 'top', :status => 400
+    else
+      render("top")
+    end
   end
-
-
 end
