@@ -24,8 +24,8 @@ module Judge
       @api_error = []
       @api_best = []
 
-      cards.each do |var|
-        target = JudgeHands.new(var)
+      cards.each do |card|
+        target = JudgeHands.new(card)
         @error_message = target.valid
         @result = target.judge
         @best = target.best
