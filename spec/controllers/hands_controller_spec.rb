@@ -96,6 +96,15 @@ RSpec.describe HandsController, type: :controller do
     end
   end
 
+  context '重複したカードが存在する' do
+    before do
+      post :result, params:{hand: "H1 S1 H1 D1 D13"} , session: {}
+    end
+    it 'bodyに「カードが重複しています。」という記述があること' do
+      expect(response.body).to include('カードが重複しています。')
+    end
+  end
+
   context '同じスートで数字が連続する5枚のカードで構成されている' do
     it 'bodyに「ストレートフラッシュ」という記述があること' do
       post :result, params:{hand: "H1 H2 H3 H4 H5"} , session: {}

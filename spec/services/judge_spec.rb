@@ -69,6 +69,14 @@ RSpec.describe JudgeService do
       expect(target.valid).to include('半角英字大文字のスート（S,H,D,C）と数字（1〜13）の組み合わせでカードを指定してください。')
     end
   end
+
+  context '重複したカードが存在する' do
+    let(:target) { judgehands::JudgeHands.new("S4 S11 C1 D3 S11")}
+    it '「カードが重複しています。」という文字列が返ること' do
+      expect(target.valid).to eq 'カードが重複しています。'
+    end
+  end
+
  end
 
  describe "リザルトメッセージ" do
