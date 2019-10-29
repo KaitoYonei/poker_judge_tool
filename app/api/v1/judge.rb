@@ -1,7 +1,7 @@
 module Judge
   class V1 < Grape::API
 
-    include ApiService
+    include JudgeService
     format :json
     resource :judge do
 
@@ -25,7 +25,7 @@ module Judge
       @api_best = []
 
       cards.each do |var|
-        target = JudgeApi.new(var)
+        target = JudgeHands.new(var)
         @error_message = target.valid
         @result = target.judge
         @best = target.best

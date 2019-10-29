@@ -12,51 +12,49 @@ module JudgeService
 
    def valid
      @error_message = nil
+     error = []
      if SIX_OR_MORE == @cards
-       @error_message = FORM_ERROR
+       error.push(FORM_ERROR)
      elsif FOUR_OR_LESS !~ @cards
-       @error_message = FORM_ERROR
+       error.push(FORM_ERROR)
      else
        @input_array = @cards.split
 
        if @error_message == nil
-         error = []
          input_numbers = [@input_array[0].delete("C,D,S,H"),@input_array[1].delete("C,D,S,H"), @input_array[2].delete("C,D,S,H"),@input_array[3].delete("C,D,S,H"), @input_array[4].delete("C,D,S,H")]
          @input_letters = [@input_array[0].delete("0-9"),@input_array[1].delete("0-9"),@input_array[2].delete("0-9"),@input_array[3].delete("0-9"),@input_array[4].delete("0-9")]
          unless NUMBER_ONE_TO_THIRTEEN === input_numbers[0] && ALPHABET_C_D_H_S === @input_letters[0]
-           error.push("1"+WRONG_CARD+"(#{@input_array[0]})<br>")
+           error.push("1"+WRONG_CARD+"(#{@input_array[0]})")
          end
 
          unless NUMBER_ONE_TO_THIRTEEN === input_numbers[1] && ALPHABET_C_D_H_S === @input_letters[1]
-           error.push("2"+WRONG_CARD+"(#{@input_array[1]})<br>")
+           error.push("2"+WRONG_CARD+"(#{@input_array[1]})")
          end
 
          unless NUMBER_ONE_TO_THIRTEEN === input_numbers[2] && ALPHABET_C_D_H_S === @input_letters[2]
-           error.push("3"+WRONG_CARD+"(#{@input_array[2]})<br>")
+           error.push("3"+WRONG_CARD+"(#{@input_array[2]})")
          end
 
          unless NUMBER_ONE_TO_THIRTEEN === input_numbers[3] && ALPHABET_C_D_H_S === @input_letters[3]
-           error.push("4"+WRONG_CARD+"(#{@input_array[3]})<br>")
+           error.push("4"+WRONG_CARD+"(#{@input_array[3]})")
          end
 
          unless NUMBER_ONE_TO_THIRTEEN === input_numbers[4] && ALPHABET_C_D_H_S === @input_letters[4]
-           error.push("5"+WRONG_CARD+"(#{@input_array[4]})<br>")
+           error.push("5"+WRONG_CARD+"(#{@input_array[4]})")
          end
 
-         if error != []
-           error.push(WRONG_CARD_MESSAGE)
-           @error_message = error.join
-         else @error_message = nil
-         if @input_array.uniq.length != @input_array.length
-           @error_message = DUPLICATE
+         if error == [] && @input_array.uniq.length != @input_array.length
+           error.push(DUPLICATE)
+         end
 
-         end
-         end
-         @error_message
        end
-     end
-   end
 
+     end
+     if error != []
+       @error_message = error
+     end
+     @error_message
+   end
 
      def judge
      @result = nil
@@ -83,7 +81,35 @@ module JudgeService
         end
      end
      @result
-    end
+     end
+
+   def best
+     @best = nil
+     if @error_message == nil
+       numbers = [@input_array[0].delete("C,D,S,H").to_i,@input_array[1].delete("C,D,S,H").to_i, @input_array[2].delete("C,D,S,H").to_i,@input_array[3].delete("C,D,S,H").to_i,@input_array[4].delete("C,D,S,H").to_i].sort
+       if (numbers[4] == numbers[3] + 1 && numbers[3] == numbers[2] + 1 && numbers[2] == numbers[1] + 1 && numbers[1] == numbers[0] + 1 || numbers == [1,10,11,12,13]) && (@input_letters[0] == @input_letters[1] && @input_letters[1] == @input_letters[2] && @input_letters[2] == @input_letters[3] && @input_letters[3] == @input_letters[4])
+         @best = 9
+       elsif numbers[0] == numbers[3] || numbers[1] == numbers[4]
+         @best = 8
+       elsif numbers[0] == numbers[2] && numbers[3] == numbers[4] || numbers[2] == numbers[4] && numbers[0] == numbers[1]
+         @best = 7
+       elsif @input_letters[0] == @input_letters[1] && @input_letters[1] == @input_letters[2] && @input_letters[2] == @input_letters[3] && @input_letters[3] == @input_letters[4]
+         @best = 6
+       elsif numbers[4] == numbers[3] + 1 && numbers[3] == numbers[2] + 1 && numbers[2] == numbers[1] + 1 && numbers[1] == numbers[0] + 1 || numbers == [1,10,11,12,13]
+         @best = 5
+       elsif numbers[0] == numbers[2] || numbers[1] == numbers[3] || numbers[2] == numbers[4]
+         @best = 4
+       elsif numbers.uniq.length == 3
+         @best = 3
+       elsif numbers.uniq.length == 4
+         @best = 2
+       else
+         @best = 1
+       end
+     end
+     @best
+   end
+
 
 
  end
