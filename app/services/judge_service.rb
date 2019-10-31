@@ -1,5 +1,15 @@
 module JudgeService
 
+  JUDGE_BEST = {"ストレートフラッシュ"=>9,
+                "フォー・オブ・ア・カインド"=>8,
+                "フルハウス"=>7,
+                "フラッシュ"=>6,
+                "ストレート"=>5,
+                "スリー・オブ・ア・カインド"=>4,
+                "ツーペア"=>3,
+                "ワンペア"=>2,
+                "ハイカード"=>1}
+
  class JudgeHands
    require "request_error"
    require "error_message"
@@ -82,35 +92,6 @@ module JudgeService
      end
      @result
      end
-
-   def best
-     @best = nil
-     if @error_message == nil
-       numbers = [@input_array[0].delete("C,D,S,H").to_i,@input_array[1].delete("C,D,S,H").to_i, @input_array[2].delete("C,D,S,H").to_i,@input_array[3].delete("C,D,S,H").to_i,@input_array[4].delete("C,D,S,H").to_i].sort
-       if (numbers[4] == numbers[3] + 1 && numbers[3] == numbers[2] + 1 && numbers[2] == numbers[1] + 1 && numbers[1] == numbers[0] + 1 || numbers == [1,10,11,12,13]) && (@input_letters[0] == @input_letters[1] && @input_letters[1] == @input_letters[2] && @input_letters[2] == @input_letters[3] && @input_letters[3] == @input_letters[4])
-         @best = 9
-       elsif numbers[0] == numbers[3] || numbers[1] == numbers[4]
-         @best = 8
-       elsif numbers[0] == numbers[2] && numbers[3] == numbers[4] || numbers[2] == numbers[4] && numbers[0] == numbers[1]
-         @best = 7
-       elsif @input_letters[0] == @input_letters[1] && @input_letters[1] == @input_letters[2] && @input_letters[2] == @input_letters[3] && @input_letters[3] == @input_letters[4]
-         @best = 6
-       elsif numbers[4] == numbers[3] + 1 && numbers[3] == numbers[2] + 1 && numbers[2] == numbers[1] + 1 && numbers[1] == numbers[0] + 1 || numbers == [1,10,11,12,13]
-         @best = 5
-       elsif numbers[0] == numbers[2] || numbers[1] == numbers[3] || numbers[2] == numbers[4]
-         @best = 4
-       elsif numbers.uniq.length == 3
-         @best = 3
-       elsif numbers.uniq.length == 4
-         @best = 2
-       else
-         @best = 1
-       end
-     end
-     @best
-   end
-
-
 
  end
 end

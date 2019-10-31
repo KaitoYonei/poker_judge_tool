@@ -28,7 +28,7 @@ module Judge
         target = JudgeHands.new(card)
         @error_message = target.valid
         @result = target.judge
-        @best = target.best
+        @best = JUDGE_BEST[@result]
         if @error_message
           @error_message.each do |err|
             @api_error.push({"card"=>card,"msg"=>err})

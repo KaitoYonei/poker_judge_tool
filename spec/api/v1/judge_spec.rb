@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'PostAPI' do
+RSpec.describe API::V1::Judges, type: :request do
   it '新しいpostを作成する' do
     valid_params = { "cards":[ "H1 Hd3 H12 H11 H10", "H9 C9 S9 H2 C2", "C13 D12 C11 H8 H7" ] }
 

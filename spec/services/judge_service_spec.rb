@@ -1,5 +1,7 @@
 require "rails_helper"
 
+include JudgeService
+
 RSpec.describe JudgeService do
 
   let!(:judgehands) { Struct.new(:target) { include JudgeService } }
@@ -8,15 +10,15 @@ RSpec.describe JudgeService do
 
   context '6文字以上' do
     let(:target) { judgehands::JudgeHands.new("S12 S5 D8 C4 H1 H9")}
-    it '「5つのカード指定文字を半角スペース区切りで入力してください。（例:"S1 H3 D9 C13 S11"）」という文字列が返ること' do
-      expect(target.valid).to include('5つのカード指定文字を半角スペース区切りで入力してください。（例:"S1 H3 D9 C13 S11"）')
+    it '「5つのカード指定文字を半角スペース区切りで入力してください。（例: S1 H3 D9 C13 S11)」という文字列が返ること' do
+      expect(target.valid).to include('5つのカード指定文字を半角スペース区切りで入力してください。（例: S1 H3 D9 C13 S11)')
     end
   end
 
   context '4文字以下もしくは不正な半角スペースが存在する' do
     let(:target) { judgehands::JudgeHands.new("C1 D3 S11")}
-    it '「5つのカード指定文字を半角スペース区切りで入力してください。（例："S1 H3 D9 C13 S11"）」という文字列が返ること' do
-      expect(target.valid).to include('5つのカード指定文字を半角スペース区切りで入力してください。（例:"S1 H3 D9 C13 S11"）')
+    it '「5つのカード指定文字を半角スペース区切りで入力してください。（例: S1 H3 D9 C13 S11)」という文字列が返ること' do
+      expect(target.valid).to include('5つのカード指定文字を半角スペース区切りで入力してください。（例: S1 H3 D9 C13 S11)')
     end
   end
 
@@ -76,14 +78,14 @@ RSpec.describe JudgeService do
       expect(target.judge).to eq ('ストレートフラッシュ')
     end
     it '9が返ること' do
-      expect(target.best).to eq 9
+      expect(JUDGE_BEST[target.judge]).to eq 9
     end
     let(:target) { judgehands::JudgeHands.new("D1 D13 D11 D12 D10")}
     it '「ストレートフラッシュ」という文字列が返ること' do
       expect(target.judge).to eq ('ストレートフラッシュ')
     end
     it '9が返ること' do
-      expect(target.best).to eq 9
+      expect(JUDGE_BEST[target.judge]).to eq 9
     end
   end
 
@@ -93,7 +95,7 @@ RSpec.describe JudgeService do
       expect(target.judge).to eq ('フォー・オブ・ア・カインド')
     end
     it '8が返ること' do
-      expect(target.best).to eq 8
+      expect(JUDGE_BEST[target.judge]).to eq 8
     end
   end
 
@@ -103,7 +105,7 @@ RSpec.describe JudgeService do
       expect(target.judge).to eq ('フルハウス')
     end
     it '7が返ること' do
-      expect(target.best).to eq 7
+      expect(JUDGE_BEST[target.judge]).to eq 7
     end
   end
 
@@ -113,7 +115,7 @@ RSpec.describe JudgeService do
       expect(target.judge).to eq ('フラッシュ')
     end
     it '6が返ること' do
-      expect(target.best).to eq 6
+      expect(JUDGE_BEST[target.judge]).to eq 6
     end
   end
 
@@ -123,14 +125,14 @@ RSpec.describe JudgeService do
       expect(target.judge).to eq ('ストレート')
     end
     it '5が返ること' do
-      expect(target.best).to eq 5
+      expect(JUDGE_BEST[target.judge]).to eq 5
     end
     let(:target) { judgehands::JudgeHands.new("S11 D13 S12 C9 D10")}
     it '「ストレート」という文字列が返ること' do
       expect(target.judge).to eq ('ストレート')
     end
     it '5が返ること' do
-      expect(target.best).to eq 5
+      expect(JUDGE_BEST[target.judge]).to eq 5
     end
   end
 
@@ -140,7 +142,7 @@ RSpec.describe JudgeService do
       expect(target.judge).to eq ('スリー・オブ・ア・カインド')
     end
     it '4が返ること' do
-      expect(target.best).to eq 4
+      expect(JUDGE_BEST[target.judge]).to eq 4
     end
   end
 
@@ -150,7 +152,7 @@ RSpec.describe JudgeService do
       expect(target.judge).to eq ('ツーペア')
     end
     it '3が返ること' do
-      expect(target.best).to eq 3
+      expect(JUDGE_BEST[target.judge]).to eq 3
     end
   end
 
@@ -160,7 +162,7 @@ RSpec.describe JudgeService do
       expect(target.judge).to eq ('ワンペア')
     end
     it '2が返ること' do
-      expect(target.best).to eq 2
+      expect(JUDGE_BEST[target.judge]).to eq 2
     end
   end
 
@@ -170,7 +172,7 @@ RSpec.describe JudgeService do
       expect(target.judge).to eq ('ハイカード')
     end
     it '1が返ること' do
-      expect(target.best).to eq 1
+      expect(JUDGE_BEST[target.judge]).to eq 1
     end
   end
  end
