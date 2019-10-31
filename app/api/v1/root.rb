@@ -2,7 +2,7 @@ module Root
   class V1 < Grape::API
 
     version 'v1', using: :path
-    format :json
+    #format :json
 
     route :any, '*path' do
       @api_error = []
