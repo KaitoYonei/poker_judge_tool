@@ -31,11 +31,11 @@ module Judge
         @best = target.best
         if @error_message
           @error_message.each do |err|
-            @api_error.push({"card"=>var,"msg"=>err})
+            @api_error.push({"card"=>card,"msg"=>err})
           end
         end
         if @result
-          @api_result.push({"card"=>var,"hand"=>"#{@result}"})
+          @api_result.push({"card"=>card,"hand"=>"#{@result}"})
           @api_best.push(@best)
         end
       end

@@ -8,15 +8,15 @@ RSpec.describe JudgeService do
 
   context '6文字以上' do
     let(:target) { judgehands::JudgeHands.new("S12 S5 D8 C4 H1 H9")}
-    it '「5つのカード指定文字を半角スペース区切りで入力してください。（例："S1 H3 D9 C13 S11"）」という文字列が返ること' do
-      expect(target.valid).to eq '5つのカード指定文字を半角スペース区切りで入力してください。（例："S1 H3 D9 C13 S11"）'
+    it '「5つのカード指定文字を半角スペース区切りで入力してください。（例:"S1 H3 D9 C13 S11"）」という文字列が返ること' do
+      expect(target.valid).to include('5つのカード指定文字を半角スペース区切りで入力してください。（例:"S1 H3 D9 C13 S11"）')
     end
   end
 
   context '4文字以下もしくは不正な半角スペースが存在する' do
     let(:target) { judgehands::JudgeHands.new("C1 D3 S11")}
     it '「5つのカード指定文字を半角スペース区切りで入力してください。（例："S1 H3 D9 C13 S11"）」という文字列が返ること' do
-      expect(target.valid).to eq '5つのカード指定文字を半角スペース区切りで入力してください。（例："S1 H3 D9 C13 S11"）'
+      expect(target.valid).to include('5つのカード指定文字を半角スペース区切りで入力してください。（例:"S1 H3 D9 C13 S11"）')
     end
   end
 
@@ -25,18 +25,12 @@ RSpec.describe JudgeService do
     it '「1番目のカード指定文字が不正です。（G1）」という文字列が返ること' do
       expect(target.valid).to include('1番目のカード指定文字が不正です。(G1)')
     end
-    it '「半角英字大文字のスート（S,H,D,C）と数字（1〜13）の組み合わせでカードを指定してください。」という文字列が返ること' do
-      expect(target.valid).to include('半角英字大文字のスート（S,H,D,C）と数字（1〜13）の組み合わせでカードを指定してください。')
-    end
   end
 
   context '2番目の文字が不正' do
     let(:target) { judgehands::JudgeHands.new("S3 S14 S1 S7 S8")}
     it '2番目のカード指定文字が不正です。（S14）」という文字列が返ること' do
       expect(target.valid).to include('2番目のカード指定文字が不正です。(S14)')
-    end
-    it '「半角英字大文字のスート（S,H,D,C）と数字（1〜13）の組み合わせでカードを指定してください。」という文字列が返ること' do
-      expect(target.valid).to include('半角英字大文字のスート（S,H,D,C）と数字（1〜13）の組み合わせでカードを指定してください。')
     end
   end
 
@@ -45,18 +39,12 @@ RSpec.describe JudgeService do
     it '「3番目のカード指定文字が不正です。（S）」という文字列が返ること' do
       expect(target.valid).to include('3番目のカード指定文字が不正です。(S)')
     end
-    it '「半角英字大文字のスート（S,H,D,C）と数字（1〜13）の組み合わせでカードを指定してください。」という文字列が返ること' do
-      expect(target.valid).to include('半角英字大文字のスート（S,H,D,C）と数字（1〜13）の組み合わせでカードを指定してください。')
-    end
   end
 
   context '4番目の文字が不正' do
     let(:target) { judgehands::JudgeHands.new("H1 S2 H3 k! D1")}
     it '「4番目のカード指定文字が不正です。（k!）」という文字列が返ること' do
       expect(target.valid).to include('4番目のカード指定文字が不正です。(k!)')
-    end
-    it '「半角英字大文字のスート（S,H,D,C）と数字（1〜13）の組み合わせでカードを指定してください。」という文字列が返ること' do
-      expect(target.valid).to include('半角英字大文字のスート（S,H,D,C）と数字（1〜13）の組み合わせでカードを指定してください。')
     end
   end
 
@@ -65,15 +53,12 @@ RSpec.describe JudgeService do
     it '「5番目のカード指定文字が不正です。（hgf）」という文字列が返ること' do
       expect(target.valid).to include('5番目のカード指定文字が不正です。(hgf)')
     end
-    it '「半角英字大文字のスート（S,H,D,C）と数字（1〜13）の組み合わせでカードを指定してください。」という文字列が返ること' do
-      expect(target.valid).to include('半角英字大文字のスート（S,H,D,C）と数字（1〜13）の組み合わせでカードを指定してください。')
-    end
   end
 
   context '重複したカードが存在する' do
     let(:target) { judgehands::JudgeHands.new("S4 S11 C1 D3 S11")}
     it '「カードが重複しています。」という文字列が返ること' do
-      expect(target.valid).to eq 'カードが重複しています。'
+      expect(target.valid).to include('カードが重複しています。')
     end
   end
 

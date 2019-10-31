@@ -1,9 +1,13 @@
-require 'rspec'
+require 'rails_helper'
 
-describe 'My behaviour' do
+describe 'PostAPI' do
+  it '新しいpostを作成する' do
+    valid_params = { "cards":[ "H1 Hd3 H12 H11 H10", "H9 C9 S9 H2 C2", "C13 D12 C11 H8 H7" ] }
 
-  it 'should do something' do
+    #データが作成されている事を確認
+    expect { post '/api/v1/judge', params: { post: valid_params } }.to change(Post, :count).by(+1)
 
-    true.should == false
+    # リクエスト成功を表す200が返ってきたか確認する。
+    expect(response.status).to eq(200)
   end
 end
