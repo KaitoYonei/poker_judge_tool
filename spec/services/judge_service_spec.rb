@@ -75,9 +75,15 @@ RSpec.describe JudgeService do
     it '「ストレートフラッシュ」という文字列が返ること' do
       expect(target.judge).to eq ('ストレートフラッシュ')
     end
+    it '9が返ること' do
+      expect(target.best).to eq 9
+    end
     let(:target) { judgehands::JudgeHands.new("D1 D13 D11 D12 D10")}
     it '「ストレートフラッシュ」という文字列が返ること' do
       expect(target.judge).to eq ('ストレートフラッシュ')
+    end
+    it '9が返ること' do
+      expect(target.best).to eq 9
     end
   end
 
@@ -86,12 +92,28 @@ RSpec.describe JudgeService do
     it '「フォー・オブ・ア・カインド」という文字列が返ること' do
       expect(target.judge).to eq ('フォー・オブ・ア・カインド')
     end
+    it '8が返ること' do
+      expect(target.best).to eq 8
+    end
+  end
+
+  context '同じ数字のカード3枚と、別の同じ数字のカード2枚で構成されている' do
+    let(:target) { judgehands::JudgeHands.new("H9 S9 D9 H1 C1")}
+    it '「フルハウス」という文字列が返ること' do
+      expect(target.judge).to eq ('フルハウス')
+    end
+    it '7が返ること' do
+      expect(target.best).to eq 7
+    end
   end
 
   context '同じスートのカード5枚で構成されている' do
     let(:target) { judgehands::JudgeHands.new("H11 H12 H13 H2 H1")}
     it '「フラッシュ」という文字列が返ること' do
       expect(target.judge).to eq ('フラッシュ')
+    end
+    it '6が返ること' do
+      expect(target.best).to eq 6
     end
   end
 
@@ -100,9 +122,15 @@ RSpec.describe JudgeService do
     it '「ストレート」という文字列が返ること' do
       expect(target.judge).to eq ('ストレート')
     end
+    it '5が返ること' do
+      expect(target.best).to eq 5
+    end
     let(:target) { judgehands::JudgeHands.new("S11 D13 S12 C9 D10")}
     it '「ストレート」という文字列が返ること' do
       expect(target.judge).to eq ('ストレート')
+    end
+    it '5が返ること' do
+      expect(target.best).to eq 5
     end
   end
 
@@ -111,12 +139,18 @@ RSpec.describe JudgeService do
     it '「スリー・オブ・ア・カインド」という文字列が返ること' do
       expect(target.judge).to eq ('スリー・オブ・ア・カインド')
     end
+    it '4が返ること' do
+      expect(target.best).to eq 4
+    end
   end
 
   context '同じ数の2枚組を2組と他のカード1枚で構成されている' do
     let(:target) { judgehands::JudgeHands.new("H2 S6 C4 H4 D2")}
     it '「ツーペア」という文字列が返ること' do
       expect(target.judge).to eq ('ツーペア')
+    end
+    it '3が返ること' do
+      expect(target.best).to eq 3
     end
   end
 
@@ -125,12 +159,18 @@ RSpec.describe JudgeService do
     it '「ワンペア」という文字列が返ること' do
       expect(target.judge).to eq ('ワンペア')
     end
+    it '2が返ること' do
+      expect(target.best).to eq 2
+    end
   end
 
   context '役が1つも成⽴しない' do
     let(:target) { judgehands::JudgeHands.new("H8 S1 C4 H3 H2")}
     it '「ハイカード」という文字列が返ること' do
       expect(target.judge).to eq ('ハイカード')
+    end
+    it '1が返ること' do
+      expect(target.best).to eq 1
     end
   end
  end
