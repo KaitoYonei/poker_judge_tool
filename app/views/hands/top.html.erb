@@ -19,7 +19,11 @@
   　<% end %>
     <% if @error_message%>
       <h2>
-        <%= @error_message.html_safe %>
+        <%= @error_message.join('<br>').html_safe %>
+        <% if @error_message.join =~ /^(?=.*番目のカード指定文字が不正です。).*$/ %>
+          <br>
+          <%= "半角英字大文字のスート（S,H,D,C）と数字（1〜13）の組み合わせでカードを指定してください。" %>
+        <% end %>
       <h2/>
     <% end %>
     <% if @result %>
