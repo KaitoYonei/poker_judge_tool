@@ -22,13 +22,13 @@ module Judge
       cards = params[:cards]
       @api_result = []
       @api_error = []
-      @api_best = []
+      @api_strong_score = []
 
       cards.each do |card|
         target = JudgeHands.new(card)
         @error_message = target.valid
         @result = target.judge
-        @best = JUDGE_BEST[@result]
+        @strong_score = JUDGE_STRONG_SCORE[@result]
         if @error_message
           @error_message.each do |err|
             @api_error.push({"card"=>card,"msg"=>err})
@@ -36,15 +36,15 @@ module Judge
         end
         if @result
           @api_result.push({"card"=>card,"hand"=>"#{@result}"})
-          @api_best.push(@best)
+          @api_strong_score.push(@strong_score)
         end
       end
 
-      best_number = @api_best.sort.reverse[0]
+      best_number = @api_strong_score.sort.reverse[0]
       x = 0
 
-      @api_best.each do |bst|
-        @api_result[x].store("best",bst == best_number)
+      @api_strong_score.each do |stg|
+        @api_result[x].store("best",stg == best_number)
         x += 1
       end
 
