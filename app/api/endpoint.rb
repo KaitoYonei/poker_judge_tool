@@ -3,7 +3,7 @@ module Endpoint
 
     prefix "api"
 
-    #format :json
+    format :json
 
     mount Root::V1
   end

@@ -5,17 +5,8 @@ module Judge
     format :json
     resource :judge do
 
-    rescue_from Grape::Exceptions::Base do
-      @api_error = []
-      @api_error.push({"msg"=>"不正なリクエストです。"})
-      error!({"error": @api_error},400)
-    end
-    rescue_from :all do |e|
-      error!({error: e.message, backtrace: e.backtrace[0]}, 500)
-    end
-
     params do
-      requires :cards, type: Array
+     requires :cards, type: Array
     end
 
     post do
