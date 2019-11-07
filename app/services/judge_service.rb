@@ -26,9 +26,9 @@ module JudgeService
      @error_message = nil
      error = []
      if SIX_OR_MORE == @cards
-       error.push(FORM_ERROR)
+       error.push(INVALID_FORM)
      elsif FOUR_OR_LESS !~ @cards
-       error.push(FORM_ERROR)
+       error.push(INVALID_FORM)
      else
        @input_array = @cards.split
 
