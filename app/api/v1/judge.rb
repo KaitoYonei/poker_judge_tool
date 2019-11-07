@@ -40,7 +40,7 @@ module Judge
         end
       end
 
-      best_number = @api_strong_score.sort.reverse[0]
+      best_number = @api_strong_score.max
       x = 0
 
       @api_strong_score.each do |stg|
