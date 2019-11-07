@@ -4,21 +4,21 @@ RSpec.describe "check api", :type => :request do
 
   context 'URLが不正な場合' do
     it 'リクエストが失敗し404エラーとなること' do
-      post :'/api/v1/judges', params:{ "cards":[ "H1 H3 H12 H11 H10","H9 C9 S9 H2 C2","C13 D12 C11 H18 H7"] }
+      post :'/api/v1/cards/checks', params:{ "cards":[ "H1 H3 H12 H11 H10","H9 C9 S9 H2 C2","C13 D12 C11 H18 H7"] }
       expect(response.status).to eq 404
     end
   end
 
   context 'データ形式が不正な場合' do
   it 'リクエストが失敗し400エラーとなること' do
-    post :'/api/v1/judge', params:{ "card":[ "H1 H3 H12 H11 H10","H9 C9 S9 H2 C2","C13 D12 C11 H18 H7"] }
+    post :'/api/v1/cards/check', params:{ "card":[ "H1 H3 H12 H11 H10","H9 C9 S9 H2 C2","C13 D12 C11 H18 H7"] }
     expect(response.status).to eq 400
   end
   end
 
   context '正しいURLに正しい形式のデータが送信された時' do
     before do
-      post :'/api/v1/judge', params:{ "cards": ["H1 H2 H3 H4 H5","H9 C9 S9 H2 C2","C13 D12 C11 H18 H7"] }
+      post :'/api/v1/cards/check', params:{ "cards": ["H1 H2 H3 H4 H5","H9 C9 S9 H2 C2","C13 D12 C11 H18 H7"] }
     end
     it 'リクエストが成功すること' do
       expect(response.status).to eq 201
@@ -50,7 +50,7 @@ RSpec.describe "check api", :type => :request do
 
   context '最も強い手札が2組以上存在するとき' do
     it '正しい出力結果が返ること' do
-      post :'/api/v1/judge', params:{ "cards": ["H1 H2 H3 H4 H5","C1 C13 C11 C10 C12","C13 D12 C11 H1 H7","D1 H1 D1 H2 H3"] }
+      post :'/api/v1/cards/check', params:{ "cards": ["H1 H2 H3 H4 H5","C1 C13 C11 C10 C12","C13 D12 C11 H1 H7","D1 H1 D1 H2 H3"] }
       pattern = {
           "result" => [
               {

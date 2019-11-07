@@ -4,12 +4,12 @@ module Check
     include JudgeService
     format :json
 
+    params do
+      requires :cards, type: Array
+    end
+
     resource :cards do
       post "/check" do
-
-        params do
-          requires :cards, type: Array
-        end
 
         cards = params[:cards]
         @api_result = []
@@ -19,10 +19,11 @@ module Check
         cards.each do |card|
           target = JudgeHands.new(card)
           @error_message = target.valid
-          @result = target.judge
-          @strong_score = JUDGE_STRONG_SCORE[@result]
-          @error_message.each {|err| @api_error.push({"card"=>card,"msg"=>err})} if @error_message
-          if @result
+          if @error_message
+            @error_message.each {|err| @api_error.push({"card"=>card,"msg"=>err})}
+          else
+            @result = target.judge unless @error_message
+            @strong_score = JUDGE_STRONG_SCORE[@result]
             @api_result.push({"card"=>card,"hand"=>"#{@result}"})
             @api_strong_score.push(@strong_score)
           end
