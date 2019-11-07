@@ -1,5 +1,5 @@
 class HandsController < ApplicationController
-  require "judge_service"
+  #require "judge_service"
   include JudgeService
 
   def top
