@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "judge api", :type => :request do
+RSpec.describe "check api", :type => :request do
 
   context 'URLが不正な場合' do
     it 'リクエストが失敗し404エラーとなること' do
