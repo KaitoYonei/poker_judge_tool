@@ -1,0 +1,37 @@
+<div class="contents" align="center">
+
+  　<div class="icon">
+  　<h1><i class="fas fa-gavel fa-flip-horizontal"></i> Poker Judge Tool <i class="fas fa-gavel"></i></h1>
+　  <div/>
+
+
+　<div class="container">
+  <div class="box">
+  　<%= form_tag("/", method: :post) do %>
+    　<div class="form">
+      <div class ="form_text">
+      　<%= text_field_tag "hand", @card, placeholder: "H1 S12 D3 H7 C10"%><br>
+      </div>
+      <div class="form_botton">
+        <%= submit_tag(:Check) %>
+      </div>
+      </div>
+  　<% end %>
+    <% if @error_message%>
+      <h2>
+        <%= @error_message.join('<br>').html_safe %>
+        <% if @error_message.join =~ /^(?=.*番目のカード指定文字が不正です。).*$/ %>
+          <br>
+          <%= "半角英字大文字のスート（S,H,D,C）と数字（1〜13）の組み合わせでカードを指定してください。" %>
+        <% end %>
+      <h2/>
+    <% end %>
+    <% if @result %>
+      <h1>
+        <%= @result %><br>
+      <h1/>
+    <% end %>
+  </div>
+    <p>©Copyright 2019 PokerJudgeTool All Rights Reserved.<p/>
+　<div/>
+<div/>
