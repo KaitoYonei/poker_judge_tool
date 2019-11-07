@@ -11,11 +11,11 @@ class HandsController < ApplicationController
     @card = params[:hand]
     target = JudgeHands.new(@card)
     @error_message = target.valid
-    @result = target.judge
 
     if @error_message
       render:action => 'top', :status => 400
     else
+      @result = target.judge
       render("top")
     end
   end

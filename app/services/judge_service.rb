@@ -33,8 +33,13 @@ module JudgeService
        @input_array = @cards.split
 
        if @error_message == nil
-         input_numbers = [@input_array[0].delete("C,D,S,H"),@input_array[1].delete("C,D,S,H"), @input_array[2].delete("C,D,S,H"),@input_array[3].delete("C,D,S,H"), @input_array[4].delete("C,D,S,H")]
-         @input_letters = [@input_array[0].delete("0-9"),@input_array[1].delete("0-9"),@input_array[2].delete("0-9"),@input_array[3].delete("0-9"),@input_array[4].delete("0-9")]
+         input_numbers =
+             [@input_array[0].delete("C,D,S,H"),@input_array[1].delete("C,D,S,H"),
+              @input_array[2].delete("C,D,S,H"),@input_array[3].delete("C,D,S,H"),
+              @input_array[4].delete("C,D,S,H")]
+         @input_letters =
+             [@input_array[0].delete("0-9"),@input_array[1].delete("0-9"), @input_array[2].delete("0-9"),
+              @input_array[3].delete("0-9"),@input_array[4].delete("0-9")]
          unless NUMBER_ONE_TO_THIRTEEN === input_numbers[0] && ALPHABET_C_D_H_S === @input_letters[0]
            error.push("1"+WRONG_CARD+"(#{@input_array[0]})")
          end
@@ -55,45 +60,49 @@ module JudgeService
            error.push("5"+WRONG_CARD+"(#{@input_array[4]})")
          end
 
-         if error == [] && @input_array.uniq.length != @input_array.length
-           error.push(DUPLICATE)
-         end
+         error.push(DUPLICATE) if error == [] && @input_array.uniq.length != @input_array.length
 
        end
 
      end
-     if error != []
-       @error_message = error
-     end
+     @error_message = error if error != []
      @error_message
    end
 
      def judge
      @result = nil
-     if @error_message == nil
-       numbers = [@input_array[0].delete("C,D,S,H").to_i,@input_array[1].delete("C,D,S,H").to_i, @input_array[2].delete("C,D,S,H").to_i,@input_array[3].delete("C,D,S,H").to_i,@input_array[4].delete("C,D,S,H").to_i].sort
-        if (numbers[4] == numbers[3] + 1 && numbers[3] == numbers[2] + 1 && numbers[2] == numbers[1] + 1 && numbers[1] == numbers[0] + 1 || numbers == [1,10,11,12,13]) && (@input_letters[0] == @input_letters[1] && @input_letters[1] == @input_letters[2] && @input_letters[2] == @input_letters[3] && @input_letters[3] == @input_letters[4])
+      numbers =
+          [@input_array[0].delete("C,D,S,H").to_i,@input_array[1].delete("C,D,S,H").to_i,
+           @input_array[2].delete("C,D,S,H").to_i,@input_array[3].delete("C,D,S,H").to_i,
+           @input_array[4].delete("C,D,S,H").to_i].sort
+       case
+       when (numbers[4] == numbers[3] + 1 && numbers[3] == numbers[2] + 1 &&
+           numbers[2] == numbers[1] + 1 && numbers[1] == numbers[0] + 1 || numbers == [1,10,11,12,13]) &&
+           (@input_letters[0] == @input_letters[1] && @input_letters[1] == @input_letters[2] &&
+               @input_letters[2] == @input_letters[3] && @input_letters[3] == @input_letters[4])
           @result = "ストレートフラッシュ"
-        elsif numbers[0] == numbers[3] || numbers[1] == numbers[4]
+       when numbers[0] == numbers[3] || numbers[1] == numbers[4]
           @result = "フォー・オブ・ア・カインド"
-        elsif numbers[0] == numbers[2] && numbers[3] == numbers[4] || numbers[2] == numbers[4] && numbers[0] == numbers[1]
+       when numbers[0] == numbers[2] && numbers[3] == numbers[4] ||
+           numbers[2] == numbers[4] && numbers[0] == numbers[1]
           @result = "フルハウス"
-        elsif @input_letters[0] == @input_letters[1] && @input_letters[1] == @input_letters[2] && @input_letters[2] == @input_letters[3] && @input_letters[3] == @input_letters[4]
+       when @input_letters[0] == @input_letters[1] && @input_letters[1] == @input_letters[2] &&
+           @input_letters[2] == @input_letters[3] && @input_letters[3] == @input_letters[4]
           @result = "フラッシュ"
-        elsif numbers[4] == numbers[3] + 1 && numbers[3] == numbers[2] + 1 && numbers[2] == numbers[1] + 1 && numbers[1] == numbers[0] + 1 || numbers == [1,10,11,12,13]
+       when numbers[4] == numbers[3] + 1 && numbers[3] == numbers[2] + 1 &&
+           numbers[2] == numbers[1] + 1 && numbers[1] == numbers[0] + 1 || numbers == [1,10,11,12,13]
           @result = "ストレート"
-        elsif numbers[0] == numbers[2] || numbers[1] == numbers[3] || numbers[2] == numbers[4]
+       when numbers[0] == numbers[2] || numbers[1] == numbers[3] || numbers[2] == numbers[4]
           @result = "スリー・オブ・ア・カインド"
-        elsif numbers.uniq.length == 3
+       when numbers.uniq.length == 3
           @result = "ツーペア"
-        elsif numbers.uniq.length == 4
+       when numbers.uniq.length == 4
           @result = "ワンペア"
-        else
+       else
           @result = "ハイカード"
-        end
-     end
+       end
      @result
-     end
+    end
 
  end
 end

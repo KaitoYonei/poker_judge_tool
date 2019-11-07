@@ -29,11 +29,7 @@ module Judge
         @error_message = target.valid
         @result = target.judge
         @strong_score = JUDGE_STRONG_SCORE[@result]
-        if @error_message
-          @error_message.each do |err|
-            @api_error.push({"card"=>card,"msg"=>err})
-          end
-        end
+          @error_message.each {|err| @api_error.push({"card"=>card,"msg"=>err})} if @error_message
         if @result
           @api_result.push({"card"=>card,"hand"=>"#{@result}"})
           @api_strong_score.push(@strong_score)
